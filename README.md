@@ -16,11 +16,19 @@ Before you begin you must have Go installed and configured properly for your com
    ```sh
    git clone https://github.com/nixon1333/golang-multi-routine.git
    ```
-2. Build the binary
+2. Build the binary and run
+   build
    ```sh
    go build -o gohttp
    ```
-
+   run
+   ```sh
+   ./gohttp -parallel 3 google.com facebook.com yahoo.com
+   ```
+or Run the go file
+   ```sh 
+   go run main.go -parallel 3 google.com facebook.com yahoo.com
+   ``` 
 
 <!-- LICENSE -->
 ## License
