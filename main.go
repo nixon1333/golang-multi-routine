@@ -3,18 +3,33 @@ package main
 import (
 	"crypto/md5"
 	"encoding/hex"
+	"flag"
 	"fmt"
 	"net/http"
 	"strings"
+	"sync"
 )
 
 func main() {
-	// take input from cli
-	// break those inputs to list of strings
-	// support parallel keywords in cli
-	// print those urls
-	// make the md5 hash of the request > maybe redirected request
-	// add unit tests
+	parallelPtr := flag.Int("parallel", 10, "an int")
+	flag.Parse()
+	maxGoroutines := *parallelPtr
+	urls := flag.Args()
+
+	guard := make(chan struct{}, maxGoroutines)
+	var wg sync.WaitGroup
+
+	for i, element := range urls {
+		wg.Add(1)
+		element := element
+		go func(n int) {
+			guard <- struct{}{} // would block if guard channel is already filled
+			defer wg.Done()
+			ProcessUrl(element)
+			<-guard
+		}(i)
+	}
+	wg.Wait()
 }
 
 func ProcessUrl(urlText string) (string, string) {
