@@ -25,13 +25,13 @@ Before you begin you must have Go installed and configured properly for your com
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the GNU License. See `LICENSE` for more information.
 
 
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@nixon13333](https://twitter.com/nixon1333) - nixon613@gmail.com
+Ashraful Islam Nixon - [@nixon13333](https://twitter.com/nixon1333)
 
 Project Link: [https://github.com/nixon1333/golang-multi-routine](https://github.com/nixon1333/golang-multi-routine)
 
